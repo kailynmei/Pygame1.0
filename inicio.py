@@ -18,12 +18,12 @@ FPS = 60
 img_fundo = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/fundo.png').convert_alpha()
 
 #* Aplica spritesheets (personagens)
-sheet_feiticeiro2 = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/Feiticeiro2/feiticero2COMPLETO.png').convert_alpha()
-sheet_feiticeiro2 = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/Feiticeiro2/feiticero2COMPLETO.png').convert_alpha()
+sheet_warrior = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/Warrior/warriorCOMPLETO.png').convert_alpha()
+sheet_wizard = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/Wizard/wizardCOMPLETO.png').convert_alpha()
 
 #* Define o número de passos em cada animação
-anim_mago2 = []
-anim_feiticeiro2 = []
+passos_anim_warrior = [10,8,1,7,7,3,7]
+passos_anim_wizard = [8,8,1,8,8,3,7]
 
 
 #* Define cores que podem ser usadas
@@ -44,8 +44,8 @@ def draw_health_bar(health,x,y):
     pygame.draw.rect(tela,AMARELO, (x,y,400 * ratio,30)) #Amarelo = saúde
 
 #* Cria duas instâncias de jogadores
-lutador_1 = Lutador(200,310)
-lutador_2 = Lutador(700,310)
+lutador_1 = Lutador(200,310,sheet_feiticeiro2,passos_anim_feiticeiro2)
+lutador_2 = Lutador(700,310,sheet_mago2,passos_anim_mago2)
 
 #* Loop do jogo
 run = True
