@@ -22,14 +22,19 @@ FPS = 60
 
 
 #* Define fundo
+#* Define fundo
 img_fundo = pygame.image.load('Assets/Imagens/fundo.png').convert_alpha()
+img_fundo = pygame.transform.scale(img_fundo,[1000,600])
 
 #* Aplica spritesheets (personagens)
 sheet_feiticeiro2 = pygame.image.load('Assets/Imagens/Wizard/wizardCOMPLETO.png').convert_alpha()
-sheet_feiticeiro2 = pygame.image.load('Assets/Imagens/Wizard/wizardCOMPLETO.png').convert_alpha()
+sheet_feiticeiro2 = pygame.transform.scale(sheet_feiticeiro2,[1000,600])
 
-menu1 = pygame.image.load('Assets/Imagens/Wizard/branco.png').convert_alpha()
-menu2 = pygame.image.load('Assets/Imagens/Wizard/preto.png').convert_alpha()
+
+menu1 = pygame.image.load('Assets/Imagens/branco.png').convert_alpha()
+menu1 = pygame.transform.scale(menu1,[1000,600])
+menu2 = pygame.image.load('Assets/Imagens/preto.png').convert_alpha()
+menu2 = pygame.transform.scale(menu2,[1000,600])
 
 #* Define o número de passos em cada animação
 anim_mago2 = []
