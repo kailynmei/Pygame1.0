@@ -1,8 +1,12 @@
 import pygame
 from lutadores import Lutador
 
+from menu import *
+
 pygame.init()
 
+
+ativa_music_menu = pygame.mixer.Sound('music.mp3')
 #? Cria janela e define parâmetros
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
@@ -14,16 +18,27 @@ pygame.display.set_caption('⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆ Medieval Fight
 clock = pygame.time.Clock()
 FPS = 60
 
+#musica
+
+
 #* Define fundo
-img_fundo = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/fundo.png').convert_alpha()
+#* Define fundo
+img_fundo = pygame.image.load('Assets/Imagens/fundo.png').convert_alpha()
+img_fundo = pygame.transform.scale(img_fundo,[1000,600])
 
 #* Aplica spritesheets (personagens)
-sheet_warrior = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/Warrior/warriorCOMPLETO.png').convert_alpha()
-sheet_wizard = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/Wizard/wizardCOMPLETO.png').convert_alpha()
+sheet_feiticeiro2 = pygame.image.load('Assets/Imagens/Wizard/wizardCOMPLETO.png').convert_alpha()
+sheet_feiticeiro2 = pygame.transform.scale(sheet_feiticeiro2,[1000,600])
+
+
+menu1 = pygame.image.load('Assets/Imagens/branco.png').convert_alpha()
+menu1 = pygame.transform.scale(menu1,[1000,600])
+menu2 = pygame.image.load('Assets/Imagens/preto.png').convert_alpha()
+menu2 = pygame.transform.scale(menu2,[1000,600])
 
 #* Define o número de passos em cada animação
-passos_anim_warrior = [10,8,1,7,7,3,7]
-passos_anim_wizard = [8,8,1,8,8,3,7]
+anim_mago2 = []
+anim_feiticeiro2 = []
 
 
 #* Define cores que podem ser usadas
@@ -44,11 +59,18 @@ def draw_health_bar(health,x,y):
     pygame.draw.rect(tela,AMARELO, (x,y,400 * ratio,30)) #Amarelo = saúde
 
 #* Cria duas instâncias de jogadores
-lutador_1 = Lutador(200,310,sheet_feiticeiro2,passos_anim_feiticeiro2)
-lutador_2 = Lutador(700,310,sheet_mago2,passos_anim_mago2)
+lutador_1 = Lutador(200,310)
+lutador_2 = Lutador(700,310)
 
+
+
+pygame.mixer.music.set_volume(0)
+ativa_music_menu.play()
+menu(tela,menu1,menu2)
 #* Loop do jogo
 run = True
+
+
 while run:
 
     clock.tick(FPS)
