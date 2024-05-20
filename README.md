@@ -3,7 +3,7 @@ Georgia Kopoulos, Helena Mansour, Kailyn Fittel
 
 
 Medieval Fights
-Medievel Fights é um jogo de batalha que possibilita dois jogadores se enfrentarem em uma batalha épica! 
+Medievel Fights é um jogo de batalha que possibilita dois jogadores se enfrentarem em uma batalha épica
 
 
 
