@@ -152,16 +152,23 @@ while run:
             round_over = True
             round_over_time = pygame.time.get_ticks()
     else:
-        # tela.blit(img_vitoria,(360,150))
-        draw_gameover()
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    round_over = False
-                    contagem_regressiva = 3
-                    lutador_1 = Lutador(1, 200, 310, False, dados_warrior, sheet_warrior, passos_anim_warrior, som_espada)
-                    lutador_2 = Lutador(2, 700, 310, True, dados_wizard, sheet_wizard, passos_anim_wizard, som_magia)
-
+        tela.blit(img_vitoria,(360,150))
+        if pygame.time.get_ticks() - round_over_time > cooldown_round_over:
+            draw_gameover()
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        round_over = False
+                        contagem_regressiva = 3
+                        lutador_1 = Lutador(1, 200, 310, False, dados_warrior, sheet_warrior, passos_anim_warrior, som_espada)
+                        lutador_2 = Lutador(2, 700, 310, True, dados_wizard, sheet_wizard, passos_anim_wizard, som_magia)
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        pygame.quit()
+                        sys.exit()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
