@@ -8,7 +8,7 @@ import sys
 mixer.init()
 pygame.init()
 
-ativa_music_menu = pygame.mixer.Sound('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/music.mp3')
+ativa_music_menu = pygame.mixer.Sound('Assets/Áudios/music.mp3')
 #? Cria janela e define parâmetros
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600

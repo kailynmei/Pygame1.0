@@ -8,7 +8,7 @@ import sys
 mixer.init()
 pygame.init()
 
-ativa_music_menu = pygame.mixer.Sound('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/music.mp3')
+ativa_music_menu = pygame.mixer.Sound('Assets/Áudios/music.mp3')
 #? Cria janela e define parâmetros
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
@@ -46,25 +46,25 @@ dados_wizard = [wizard_size, wizard_scale, wizard_offset]
 
 #* Define sons
 #! ATAQUES
-som_espada = pygame.mixer.Sound('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Áudios/sword.wav')
+som_espada = pygame.mixer.Sound('Assets/Áudios/sword.wav')
 som_espada.set_volume(0.5)
-som_magia = pygame.mixer.Sound('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Áudios/magic-wand-6214.mp3')
+som_magia = pygame.mixer.Sound('Assets/Áudios/magic-wand-6214.mp3')
 som_magia.set_volume(1.0)
 
 #* Define fundo
-img_fundo = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/fundo.png').convert_alpha()
+img_fundo = pygame.image.load('Assets/Imagens/fundo.png').convert_alpha()
 
 #* Spritesheets (personagens)
-sheet_warrior = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/Warrior/warriorTODOS.png').convert_alpha()
-sheet_wizard = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/Wizard/wizardTODOS.png').convert_alpha()
+sheet_warrior = pygame.image.load('Assets/Imagens/Warrior/warriorTODOS.png').convert_alpha()
+sheet_wizard = pygame.image.load('Assets/Imagens/Wizard/wizardTODOS.png').convert_alpha()
 
 #* Imagem vitória
-img_vitoria = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/victory.png').convert_alpha()
-img_gameover = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/telagameover2.png').convert_alpha()
+img_vitoria = pygame.image.load('Assets/Imagens/victory.png').convert_alpha()
+img_gameover = pygame.image.load('Assets/Imagens/telagameover2.png').convert_alpha()
 
-menu1 = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/initialScreen.jpeg').convert_alpha()
+menu1 = pygame.image.load('Assets/Imagens/initialScreen.jpeg').convert_alpha()
 menu1 = pygame.transform.scale(menu1,[1000,600])
-menu2 = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/initialScreentransparencia.jpg').convert_alpha()
+menu2 = pygame.image.load('Assets/Imagens/initialScreentransparencia.jpg').convert_alpha()
 menu2 = pygame.transform.scale(menu2,[1000,600])
 
 
@@ -73,8 +73,8 @@ passos_anim_warrior = [10, 8, 1, 7, 7, 3, 7]
 passos_anim_wizard = [8, 8, 1, 8, 8, 3, 7]
 
 #* Define fonte
-fonte_contagem = pygame.font.Font('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Fonte (texto)/turok.ttf', 80) 
-fonte_pontos = pygame.font.Font('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Fonte (texto)/turok.ttf', 30) 
+fonte_contagem = pygame.font.Font('Assets/Fonte (texto)/turok.ttf', 80) 
+fonte_pontos = pygame.font.Font('Assets/Fonte (texto)/turok.ttf', 30) 
 
 #* Função para escrever texto na tela
 def draw_texto(texto, fonte, cor_texto, x, y):
@@ -87,7 +87,7 @@ def draw_fundo():
     tela.blit(img_escalada,(0,0))
 
 def draw_gameover():
-    img_gameover = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/telagameover2.png').convert_alpha()
+    img_gameover = pygame.image.load('Assets/Imagens/telagameover2.png').convert_alpha()
     tela.blit(pygame.transform.scale(img_gameover,(SCREEN_WIDTH,SCREEN_HEIGHT)),(0,0))
 
 #* Barra de vida dos personagens
