@@ -44,7 +44,11 @@ Shift, Enter : Atacar
 
 
 CRÉDITOS
-
+https://www.youtube.com/watch?v=s5bd9KMSSW4 
+https://luizmelo.itch.io/fantasy-warrior
+https://luizmelo.itch.io/evil-wizard-2
+https://www.youtube.com/watch?v=AIamQfL9d1I
+https://www.youtube.com/watch?v=wnMolnEy7Ik
 
 DEPENDÊNCIAS
 Para que o jogo funcione, é necessário importar todas as bibliotecas mencionadas abaixo:
