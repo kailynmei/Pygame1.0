@@ -11,18 +11,18 @@ def cheque_sair(events):
                 pygame.quit()
                 sys.exit()
 
-pygame.init()
+# pygame.init()
 
-screen = pygame.display.set_mode((800, 600))
-pygame.display.set_caption("Jogo Pygame - Saída com ESC")
+# screen = pygame.display.set_mode((800, 600))
+# pygame.display.set_caption("Jogo Pygame - Saída com ESC")
 
-running = True
-while running:
-    events = pygame.event.get()
-    cheque_sair(events)
+# running = True
+# while running:
+#     events = pygame.event.get()
+#     cheque_sair(events)
     
     
-    screen.fill((0, 0, 0))  
-    pygame.display.flip()
+#     screen.fill((0, 0, 0))  
+#     pygame.display.flip()
 
-pygame.quit()
+# pygame.quit()
