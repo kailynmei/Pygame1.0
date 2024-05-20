@@ -17,6 +17,7 @@ Para abrir a interface do jogo, após a instalação das dependências, é neces
 
 
 COMO JOGAR
+
 Para iniciar o jogo clique a tecla 'C' do teclado;
 O jogo é feito para ser jogado em dois jogadores, um utilizando as teclas "A", "W" e "D" do teclado e outro as setas;
 O jogador da direita utiliza as setas para se movimentar e "shift" e "enter" para atacar, já o jogador da esquerda utiliza a tecla "A" para se movimentar para a esquerda, "D" para se movimentar para a direira, "W" para saltar e as teclas "R" e "T" para atacar;
@@ -27,7 +28,8 @@ Uma vez que um dos jogadores perde é possivel voltar a jogar ao precionar "espa
 
 
 
-CONTROLES
+**CONTROLES**
+
 Player 1(player da esquerda):
 W : Pular
 A : Deslocar para a esquerda
