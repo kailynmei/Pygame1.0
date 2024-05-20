@@ -1,10 +1,14 @@
 import pygame
 from pygame import mixer
 from lutadores import Lutador
+from menu import *
+import sys
+
 
 mixer.init()
 pygame.init()
 
+ativa_music_menu = pygame.mixer.Sound('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/music.mp3')
 #? Cria janela e define parâmetros
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
@@ -22,6 +26,7 @@ AMARELO = (255, 255, 0)
 BRANCO = (255, 255, 255)
 
 #* Define variáveis do jogo
+status_jogo = "start_menu"
 contagem_regressiva = 3
 ultima_contagem_update = pygame.time.get_ticks()
 pontos = [0,0] # [Jogador1, Jogador2]
@@ -40,32 +45,36 @@ wizard_offset = [112, 107]
 dados_wizard = [wizard_size, wizard_scale, wizard_offset]
 
 #* Define sons
-#! MÚSICA
-# Helena
-
 #! ATAQUES
-som_espada = pygame.mixer.Sound('/Users/kailynmeifittelng/Downloads/Cópias Pygame/Pygame GHK/Pygame1.0/Assets/Áudios/sword.wav')
+som_espada = pygame.mixer.Sound('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Áudios/sword.wav')
 som_espada.set_volume(0.5)
-som_magia = pygame.mixer.Sound('/Users/kailynmeifittelng/Downloads/Cópias Pygame/Pygame GHK/Pygame1.0/Assets/Áudios/magic.wav')
-som_magia.set_volume(0.75)
+som_magia = pygame.mixer.Sound('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Áudios/magic-wand-6214.mp3')
+som_magia.set_volume(1.0)
 
 #* Define fundo
 img_fundo = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/fundo.png').convert_alpha()
 
 #* Spritesheets (personagens)
-sheet_warrior = pygame.image.load('/Users/kailynmeifittelng/Downloads/Cópias Pygame/Pygame GHK/Pygame1.0/Assets/Imagens/Warrior/warriorTODOS.png').convert_alpha()
-sheet_wizard = pygame.image.load('/Users/kailynmeifittelng/Downloads/Cópias Pygame/Pygame GHK/Pygame1.0/Assets/Imagens/Wizard/wizardTODOS.png').convert_alpha()
+sheet_warrior = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/Warrior/warriorTODOS.png').convert_alpha()
+sheet_wizard = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/Wizard/wizardTODOS.png').convert_alpha()
 
 #* Imagem vitória
-img_vitoria = pygame.image.load('/Users/kailynmeifittelng/Downloads/Cópias Pygame/Pygame GHK/Pygame1.0/Assets/Imagens/victory.png').convert_alpha()
+img_vitoria = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/victory.png').convert_alpha()
+img_gameover = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/telagameover2.png').convert_alpha()
+
+menu1 = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/initialScreen.jpeg').convert_alpha()
+menu1 = pygame.transform.scale(menu1,[1000,600])
+menu2 = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/initialScreentransparencia.jpg').convert_alpha()
+menu2 = pygame.transform.scale(menu2,[1000,600])
+
 
 #* Define o número de passos em cada animação
 passos_anim_warrior = [10, 8, 1, 7, 7, 3, 7]
 passos_anim_wizard = [8, 8, 1, 8, 8, 3, 7]
 
 #* Define fonte
-fonte_contagem = pygame.font.Font('/Users/kailynmeifittelng/Downloads/Cópias Pygame/Pygame GHK/Pygame1.0/Assets/Fonte (texto)/turok.ttf', 80) 
-fonte_pontos = pygame.font.Font('/Users/kailynmeifittelng/Downloads/Cópias Pygame/Pygame GHK/Pygame1.0/Assets/Fonte (texto)/turok.ttf', 30) 
+fonte_contagem = pygame.font.Font('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Fonte (texto)/turok.ttf', 80) 
+fonte_pontos = pygame.font.Font('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Fonte (texto)/turok.ttf', 30) 
 
 #* Função para escrever texto na tela
 def draw_texto(texto, fonte, cor_texto, x, y):
@@ -76,6 +85,7 @@ def draw_texto(texto, fonte, cor_texto, x, y):
 def draw_fundo():
     img_escalada = pygame.transform.scale(img_fundo,(SCREEN_WIDTH,SCREEN_HEIGHT))
     tela.blit(img_escalada,(0,0))
+
 
 #* Barra de vida dos personagens
 def draw_health_bar(health,x,y):
@@ -88,7 +98,11 @@ def draw_health_bar(health,x,y):
 lutador_1 = Lutador(1, 200, 310, False, dados_warrior, sheet_warrior, passos_anim_warrior, som_espada)
 lutador_2 = Lutador(2, 700, 310, True, dados_wizard, sheet_wizard, passos_anim_wizard, som_magia)
 
+pygame.mixer.music.set_volume(0)
+ativa_music_menu.play()
+menu(tela,menu1,menu2)
 #* Loop do jogo
+
 run = True
 while run:
 
@@ -134,6 +148,7 @@ while run:
             pontos[0] += 1
             round_over = True
             round_over_time = pygame.time.get_ticks()
+            
     else:
         tela.blit(img_vitoria,(360,150))
         if pygame.time.get_ticks() - round_over_time > cooldown_round_over:
@@ -144,11 +159,13 @@ while run:
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
+            pygame.quit()
+            sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                pygame.quit()
+                sys.exit()
 
-
-    #* Atualiza display
     pygame.display.update()
-
 # Sai do jogo
 pygame.quit()
