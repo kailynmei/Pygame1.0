@@ -87,5 +87,7 @@ https://freesound.org/people/Mateusz_Chenc/sounds/547600/
 Para que o jogo funcione, é necessário importar todas as bibliotecas mencionadas abaixo:
 
 pygame
+
 mixer
+
 sys
