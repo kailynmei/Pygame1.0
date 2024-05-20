@@ -86,6 +86,9 @@ def draw_fundo():
     img_escalada = pygame.transform.scale(img_fundo,(SCREEN_WIDTH,SCREEN_HEIGHT))
     tela.blit(img_escalada,(0,0))
 
+def draw_gameover():
+    img_gameover = pygame.image.load('/Users/kailynmeifittelng/Downloads/Pygame GHK/Pygame1.0/Assets/Imagens/telagameover2.png').convert_alpha()
+    tela.blit(pygame.transform.scale(img_gameover,(SCREEN_WIDTH,SCREEN_HEIGHT)),(0,0))
 
 #* Barra de vida dos personagens
 def draw_health_bar(health,x,y):
@@ -148,14 +151,16 @@ while run:
             pontos[0] += 1
             round_over = True
             round_over_time = pygame.time.get_ticks()
-            
     else:
-        tela.blit(img_vitoria,(360,150))
-        if pygame.time.get_ticks() - round_over_time > cooldown_round_over:
-            round_over = False
-            contagem_regressiva = 3
-            lutador_1 = Lutador(1, 200, 310, False, dados_warrior, sheet_warrior, passos_anim_warrior, som_espada)
-            lutador_2 = Lutador(2, 700, 310, True, dados_wizard, sheet_wizard, passos_anim_wizard, som_magia)
+        # tela.blit(img_vitoria,(360,150))
+        draw_gameover()
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    round_over = False
+                    contagem_regressiva = 3
+                    lutador_1 = Lutador(1, 200, 310, False, dados_warrior, sheet_warrior, passos_anim_warrior, som_espada)
+                    lutador_2 = Lutador(2, 700, 310, True, dados_wizard, sheet_wizard, passos_anim_wizard, som_magia)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -165,6 +170,7 @@ while run:
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 sys.exit()
+
 
     pygame.display.update()
 # Sai do jogo
