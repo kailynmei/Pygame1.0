@@ -51,6 +51,9 @@ https://www.youtube.com/watch?v=AIamQfL9d1I
 https://www.youtube.com/watch?v=wnMolnEy7Ik
 https://motionarray.com/browse/sound-effects/?sort_by=most-popular&utm_source=google&utm_medium=cpc&utm_campaign=20418077027&utm_content=154966260227&utm_term=efeitos%20sonoros&keyword=efeitos%20sonoros&ad=667870574865&matchtype=b&device=c&gad_source=1&gclid=Cj0KCQjw6auyBhDzARIsALIo6v-Y4n1addlwEUROObPevSRwmPq83ogOHm3z1lr7X5epdKf6jWTCKGcaAljBEALw_wcB
 
+FONTES DE TEXTO:
+https://fontmeme.com/fonts/turok-font/
+
 DEPENDÊNCIAS
 Para que o jogo funcione, é necessário importar todas as bibliotecas mencionadas abaixo:
 
