@@ -7,7 +7,7 @@ Medievel Fights é um jogo de batalha que possibilita dois jogadores se enfrenta
 
 
 
-VÍDEO TUTORIAL (EXPLICANDO COMO FUNCIONA O JOGO)
+VÍDEO TUTORIAL 
 
 
 
