@@ -54,6 +54,11 @@ https://motionarray.com/browse/sound-effects/?sort_by=most-popular&utm_source=go
 FONTES DE TEXTO:
 https://fontmeme.com/fonts/turok-font/
 
+MÚSICAS:
+https://fontmeme.com/fonts/turok-font/
+https://freesound.org/people/qubodup/sounds/442872/
+https://freesound.org/people/Mateusz_Chenc/sounds/547600/
+
 DEPENDÊNCIAS
 Para que o jogo funcione, é necessário importar todas as bibliotecas mencionadas abaixo:
 
